@@ -1,0 +1,25 @@
+{% extends "material/base.html" %}
+{% block content %}
+
+<div class="showcase container green lighten-3">
+    <div class="row">
+        <div class="col 12 m10 offset-ml center"> 
+            <h2> Iris Species Predictor </h2>
+            <p> ML Web App </p>
+            <a href="{{url_for('index')}}" class="btn btn-small waves-effect waves-dark"> Back </a>
+            <!-- <a href="{{url_for('preview')}}" class="btn btn-small white black-text waves-effect waves-dark"> View Dataset</a> -->
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    {{df_view.to_html(classes="table striped",na_rep="-") | safe}}  <!-- [na_rep="-" | safe] allow to CREATE beautiful table -->
+</div>
+
+{% endblock %}
+
+<!-- {% block scripts %}
+
+{{ super() }}
+
+{% endblock %} -->

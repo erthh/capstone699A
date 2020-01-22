@@ -1,0 +1,101 @@
+{% extends "material/base.html" %}
+{% block content %}
+
+<div class="showcase container green lighten-3">
+    <div class="row">
+        <div class="col 12 m12 offset-ml center"> 
+            <h2> Health Predictor </h2>
+            <p> ML Web App </p>
+            <a href="{{url_for('index')}}" class="btn btn-small waves-effect waves-dark"> Reset</a>
+            <a href="{{url_for('preview')}}" class="btn btn-small white black-text waves-effect waves-dark"> View Dataset</a>
+        </div>
+    </div>
+</div>
+
+<section>
+    <div>
+        <form class="row" method="POST" action="{{url_for('analyze')}}">
+            <div class="input-field col s6">
+                <label>Slider Input 1</label>
+                <p class="range-field">
+                <input type="range" min="0" max="8" step="0.1" value="0" name="sepal_length"> <!-- name= is important to send a value to app.py -->
+                </p>
+            </div> 
+            
+            <div class="input-field col s6">
+                <label>Slider Input 2</label>
+                <p class="range-field">
+                <input type="range" name="sepal_width" min="0" max="8" step="0.1" value="0"> 
+                </p>
+            </div>
+            
+            <div class="input-field col s6">
+                <label>Slider Input 3</label>
+                <p class="range-field">
+                <input type="range" name="petal_length" min="0" max="8" step="0.1" value="0">
+                </p>
+            </div>
+            
+            <div class="input-field col s6">
+                <label>Slider Input 4</label>
+                <p class="range-field">
+                <input type="range" name="petal_width" min="0" max="8" step="0.1" value="0">
+                </p>
+            </div>
+
+            <div class="input-field col s6">
+                <input placeholder="Input1" id="Input1" name="Input1" type="text" class="validate">
+                <label for="Input1">Input1</label>
+            </div>
+            
+            <div class="input-field col s6">
+                <input placeholder="Input2" id="Input2" name="Input2" type="text" class="validate">
+                <label for="Input2">Input2</label>
+            </div>
+            
+            <div class="input-field col s6">
+            <select class="browser-default" name="Input3">
+                <option value="" disabled selected>Choose Value</option>
+                <option value="Option 1">Option 1</option>
+                <option value="Option 2">Option 2</option>
+                <option value="Option 3">Option 3</option>
+            </select>
+            </div>
+
+            <div class="input-field col s6">
+                <select class="browser-default" name="Input4">
+                  <option value="" disabled selected>Choose Value</option>
+                  <option value="Option 1">Option 1</option>
+                  <option value="Option 2">Option 2</option>
+                  <option value="Option 3">Option 3</option>
+                </select>
+            </div>
+
+            <div class="input-field col s6">
+            <input type="submit" value="Submit">
+            </div>
+        </form>
+    </div>
+
+    <h3>Result from inputs above</h3>
+    <div class="col 12">
+        <p><b>SliderInput1:</b> {{sepal_length}}</p>
+        <p><b>SliderInput2:</b> {{sepal_width}}</p>
+        <p><b>SliderInput3:</b> {{petal_length}}</p>
+        <p><b>SliderInput4:</b> {{petal_width}}</p>
+        <p><b>Input1:</b> {{Input1}}</p>
+        <p><b>Input2:</b> {{Input2}}</p>
+        <p><b>Dropdown Input1:</b> {{Input3}}</p>
+        <p><b>Dropdown Input2:</b> {{Input4}}</p>
+    </div>
+
+
+</section>
+
+{% endblock %}
+
+{% block scripts %}
+
+{{ super() }}
+
+{% endblock %}
